@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Checkers.Game;
+using Checkers.Misc;
+using System;
 
 namespace Checkers {
     class Program {
-        static void Main (string[] args) {
+        static void Main () {
+            GameInitializer.Instance.InitializeGame ();
+            Drawer.Instance.Draw ();
+
+            Console.ReadLine ();
         }
     }
 }

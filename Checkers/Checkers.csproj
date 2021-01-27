@@ -43,6 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Enums\Color.cs" />
+    <Compile Include="Enums\Fields.cs" />
+    <Compile Include="Game\GameInitializer.cs" />
+    <Compile Include="Game\Field.cs" />
+    <Compile Include="Game\GameLoop.cs" />
+    <Compile Include="Game\InputReader.cs" />
+    <Compile Include="Misc\Drawer.cs" />
+    <Compile Include="Misc\Singleton.cs" />
+    <Compile Include="Pawns\IPawn.cs" />
+    <Compile Include="Pawns\IPawnMover.cs" />
+    <Compile Include="Pawns\Pawn.cs" />
+    <Compile Include="Pawns\PawnMover.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
