@@ -49,7 +49,6 @@ namespace Checkers.Game {
                 }
             }
             GameOver ();
-
         }
 
         private void GameOver () {
@@ -81,7 +80,6 @@ namespace Checkers.Game {
             curField.Pawn.Move (targetField.FieldEnum);
             Console.WriteLine ($"Pawn {targetField.Pawn.Name} has been moved.");
         }
-
         private void WriteMovementInfo (List<TakeDetails> possibleTakes) {
             if (possibleTakes?.Any () == true) {
                 Console.Write ("Possible takes: ");

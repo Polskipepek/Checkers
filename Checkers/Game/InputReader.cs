@@ -2,7 +2,6 @@
 
 namespace Checkers.Game {
     public class InputReader : Singleton<InputReader> {
-
         public bool ReadGameLoopInput (string input, out Field cur, out Field target) {
             cur = null;
             target = null;

@@ -11,7 +11,6 @@ namespace Checkers.Game {
         }
 
         public IPawn Pawn => Board.Instance.OnboardPawns.FirstOrDefault (p => p.MyField == this);
-
         public (char letter, int number) GetFieldCoordinates () {
             var letter = FieldEnum.ToString ()[0];
             var number = int.Parse (FieldEnum.ToString ()[1].ToString ());
@@ -55,6 +54,5 @@ namespace Checkers.Game {
             var newFieldCoord = $"{Convert.ToChar ((char) letter - 1)}{number - 1}";
             return TryParseStringToField (newFieldCoord);
         }
-
     }
 }

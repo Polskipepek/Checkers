@@ -35,7 +35,6 @@ namespace Checkers.Misc {
             }
             if (GameLoop.Instance.Moves?.Any () == true)
                 Console.WriteLine (string.Join (", ", GameLoop.Instance.Moves.Select (move => $"{move.Item1.FieldEnum} to {move.Item2.FieldEnum}")));
-
         }
     }
 }

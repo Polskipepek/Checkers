@@ -48,7 +48,6 @@ namespace Checkers {
             get => AllFields.FirstOrDefault (field => (field.FieldEnum.ToString () == pos.letter + pos.number.ToString ()));
         }
 
-
         private void SetAllFields () => AllFields = new List<Field> () {
             new Field(Fields.a1),
             new Field(Fields.a2),

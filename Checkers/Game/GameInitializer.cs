@@ -5,11 +5,9 @@ using System.Collections.Generic;
 
 namespace Checkers.Game {
     public class GameInitializer : Singleton<GameInitializer> {
-
         public void InitializeGame () {
             Board.Instance.InitializeBoard (GetStartingPawns (), GetPlayableFields ());
         }
-
         private List<Field> GetPlayableFields () => new List<Field> () {
             new Field(Fields.a1),
             new Field(Fields.a3),
