@@ -12,7 +12,7 @@ namespace Checkers.Game {
         public Color ColorToMove => Moves?.Count % 2 == 0 ? Color.white : Color.black;
         public IEnumerable<IPawn> BlackPawns => Board.Instance.OnboardPawns.Where (pawn => pawn.MyColor == Color.black);
         public IEnumerable<IPawn> WhitePawns => Board.Instance.OnboardPawns.Where (pawn => pawn.MyColor == Color.white);
-        public bool GameOver => !BlackPawns.Any () || !WhitePawns.Any () ||
+        public bool IsGameOver => !BlackPawns.Any () || !WhitePawns.Any () ||
             BlackPawns.Count (pawn => pawn.PossibleMoves?.Count () == 0) == BlackPawns.Count () ||
             WhitePawns.Count (pawn => pawn.PossibleMoves?.Count () == 0) == WhitePawns.Count ();
 
@@ -24,7 +24,7 @@ namespace Checkers.Game {
         void MainLoopGame () {
             Console.WriteLine ("The Game has just started.");
             Console.WriteLine ("Expected Input: i.e. for white a3-b4");
-            while (!GameOver) {
+            while (!IsGameOver) {
                 Console.WriteLine ("To move: " + ColorToMove);
                 var possibleTakes = GetPossibleTakes ();
                 WriteMovementInfo (possibleTakes);
@@ -47,6 +47,20 @@ namespace Checkers.Game {
                     MakeMove (curField, targetField);
                     Drawer.Instance.Draw ();
                 }
+            }
+            GameOver ();
+
+        }
+
+        private void GameOver () {
+            Console.WriteLine ("Game over");
+
+            if (WhitePawns.FirstOrDefault () == null) {
+                Console.WriteLine ("Black won!");
+            } else if (BlackPawns.FirstOrDefault () == null) {
+                Console.WriteLine ("White won!");
+            } else {
+                Console.WriteLine ("Draw! :(");
             }
         }
 
