@@ -10,7 +10,7 @@ namespace Checkers.Game {
             Board.Instance.InitializeBoard (GetStartingPawns (), GetPlayableFields ());
         }
 
-        private IEnumerable<Field> GetPlayableFields () => new List<Field> () {
+        private List<Field> GetPlayableFields () => new List<Field> () {
             new Field(Fields.a1),
             new Field(Fields.a3),
             new Field(Fields.a5),
@@ -52,36 +52,36 @@ namespace Checkers.Game {
             new Field(Fields.h8),
         };
 
-        private IEnumerable<IPawn> GetStartingPawns () => new List<IPawn> () {
-            new Pawn("P", Color.white, Board.Instance[Fields.a1]),
-            new Pawn("P", Color.white, Board.Instance[Fields.c1]),
-            new Pawn("P", Color.white, Board.Instance[Fields.e1]),
-            new Pawn("P", Color.white, Board.Instance[Fields.g1]),
+        private List<IPawn> GetStartingPawns () => new List<IPawn> () {
+            new Pawn("O", Color.white, Board.Instance[Fields.a1]),
+            new Pawn("O", Color.white, Board.Instance[Fields.c1]),
+            new Pawn("O", Color.white, Board.Instance[Fields.e1]),
+            new Pawn("O", Color.white, Board.Instance[Fields.g1]),
 
-            new Pawn("P", Color.white, Board.Instance[Fields.b2]),
-            new Pawn("P", Color.white, Board.Instance[Fields.d2]),
-            new Pawn("P", Color.white, Board.Instance[Fields.f2]),
-            new Pawn("P", Color.white, Board.Instance[Fields.h2]),
+            new Pawn("O", Color.white, Board.Instance[Fields.b2]),
+            new Pawn("O", Color.white, Board.Instance[Fields.d2]),
+            new Pawn("O", Color.white, Board.Instance[Fields.f2]),
+            new Pawn("O", Color.white, Board.Instance[Fields.h2]),
 
-            new Pawn("P", Color.white, Board.Instance[Fields.a3]),
-            new Pawn("P", Color.white, Board.Instance[Fields.c3]),
-            new Pawn("P", Color.white, Board.Instance[Fields.e3]),
-            new Pawn("P", Color.white, Board.Instance[Fields.g3]),
+            new Pawn("O", Color.white, Board.Instance[Fields.a3]),
+            new Pawn("O", Color.white, Board.Instance[Fields.c3]),
+            new Pawn("O", Color.white, Board.Instance[Fields.e3]),
+            new Pawn("O", Color.white, Board.Instance[Fields.g3]),
 
-            new Pawn("P", Color.black, Board.Instance[Fields.b6]),
-            new Pawn("P", Color.black, Board.Instance[Fields.d6]),
-            new Pawn("P", Color.black, Board.Instance[Fields.f6]),
-            new Pawn("P", Color.black, Board.Instance[Fields.h6]),
+            new Pawn("O", Color.black, Board.Instance[Fields.b6]),
+            new Pawn("O", Color.black, Board.Instance[Fields.d6]),
+            new Pawn("O", Color.black, Board.Instance[Fields.f6]),
+            new Pawn("O", Color.black, Board.Instance[Fields.h6]),
 
-            new Pawn("P", Color.black, Board.Instance[Fields.a7]),
-            new Pawn("P", Color.black, Board.Instance[Fields.c7]),
-            new Pawn("P", Color.black, Board.Instance[Fields.e7]),
-            new Pawn("P", Color.black, Board.Instance[Fields.g7]),
+            new Pawn("O", Color.black, Board.Instance[Fields.a7]),
+            new Pawn("O", Color.black, Board.Instance[Fields.c7]),
+            new Pawn("O", Color.black, Board.Instance[Fields.e7]),
+            new Pawn("O", Color.black, Board.Instance[Fields.g7]),
 
-            new Pawn("P", Color.black, Board.Instance[Fields.b8]),
-            new Pawn("P", Color.black, Board.Instance[Fields.d8]),
-            new Pawn("P", Color.black, Board.Instance[Fields.f8]),
-            new Pawn("P", Color.black, Board.Instance[Fields.h8]),
+            new Pawn("O", Color.black, Board.Instance[Fields.b8]),
+            new Pawn("O", Color.black, Board.Instance[Fields.d8]),
+            new Pawn("O", Color.black, Board.Instance[Fields.f8]),
+            new Pawn("O", Color.black, Board.Instance[Fields.h8]),
         };
     }
 }

@@ -7,7 +7,7 @@ namespace Checkers {
         static void Main () {
             GameInitializer.Instance.InitializeGame ();
             Drawer.Instance.Draw ();
-
+            GameLoop.Instance.StartGame ();
             Console.ReadLine ();
         }
     }

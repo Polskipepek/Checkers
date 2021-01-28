@@ -1,24 +1,41 @@
-﻿using Checkers.Game;
+﻿using Checkers.Enums;
+using Checkers.Game;
 using System;
+using System.Linq;
 
 namespace Checkers.Misc {
     public class Drawer : Singleton<Drawer> {
+        bool IsCorner (int x, int y) => x == -1 && y == -1 || x == 8 && y == -1 || x == 8 && y == 8 || x == -1 && y == 8;
+        bool IsHorizontalBound (int x) => x == -1 || x == 8;
+        bool IsVerticalBound (int y) => y == -1 || y == 8;
 
         public void Draw () {
-            for (int y = -1; y < 9; y++) {
+            Console.Clear ();
+            for (int y = 8; y >= -1; y--) {
                 for (int x = -1; x < 9; x++) {
-                    if ((x == -1 || x == 8)) {
-                        Console.Write ((char) (y + 1 + 96) + " ");
+                    Console.ResetColor ();
+                    if (IsCorner (x, y)) {
+                        Console.Write ("* ");
                         continue;
-                    } else if (y == -1 || y == 8) {
-                        Console.Write (x + 1 + " ");
-                        continue;
+                    } else {
+                        if (IsVerticalBound (y)) {
+                            Console.Write ((char) (x + 'a') + " ");
+                            continue;
+                        } else if (IsHorizontalBound (x)) {
+                            Console.Write (y + 1 + " ");
+                            continue;
+                        }
                     }
-                    Field field = Board.Instance.AllFields[(y) * 8 + (x)];
-                    Console.Write (field.Pawn != null ? "P " : "  ");
+                    Console.BackgroundColor = (x + y) % 2 == 0 ? ConsoleColor.DarkGray : ConsoleColor.Gray;
+                    Field field = Board.Instance.AllFields[(x) * 8 + (y)];
+                    Console.ForegroundColor = field.Pawn?.MyColor == Color.black ? ConsoleColor.Black : ConsoleColor.White;
+                    Console.Write (field.Pawn != null ? $"{field.Pawn.Name} " : "  ");
                 }
                 Console.WriteLine ();
             }
+            if (GameLoop.Instance.Moves?.Any () == true)
+                Console.WriteLine (string.Join (", ", GameLoop.Instance.Moves.Select (move => $"{move.Item1.FieldEnum} to {move.Item2.FieldEnum}")));
+
         }
     }
 }

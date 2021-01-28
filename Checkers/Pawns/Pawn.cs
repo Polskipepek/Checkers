@@ -13,18 +13,22 @@ namespace Checkers.Pawns {
 
         public string Name { get; }
 
+        public List<TakeDetails> PossibleTakes => PawnMover.GetPossibleTakes ();
+
         public Pawn (string name, Color color, Field position) {
             MyColor = color;
             MyField = position;
             Name = name;
-            PawnMover = name.ToLower () == "p" ? new PawnMover (this) : null;
+            PawnMover = name.ToLower () == "o" ? new PawnMover (this) : null;
         }
 
         public void Move (Fields position) {
-            var possiblePositions = PawnMover.GetPossiblePositions ();
-            if (possiblePositions.Contains (position)) {
-                MyField = Board.Instance[position];
-            }
+            MyField = Board.Instance[position];
+        }
+
+        public void Dispose () {
+            MyField = null;
+            PawnMover = null;
         }
     }
 }

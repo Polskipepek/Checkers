@@ -50,6 +50,7 @@
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\GameLoop.cs" />
     <Compile Include="Game\InputReader.cs" />
+    <Compile Include="Game\TakeDetails.cs" />
     <Compile Include="Misc\Drawer.cs" />
     <Compile Include="Misc\Singleton.cs" />
     <Compile Include="Pawns\IPawn.cs" />

@@ -7,15 +7,15 @@ using System.Linq;
 
 namespace Checkers {
     public class Board : Singleton<Board> {
-        public IEnumerable<IPawn> OnboardPawns { get; private set; }
-        public IEnumerable<Field> PlayableFields { get; private set; }
+        public List<IPawn> OnboardPawns { get; private set; }
+        public List<Field> PlayableFields { get; private set; }
         public List<Field> AllFields { get; private set; }
 
         public Board () {
             SetAllFields ();
         }
 
-        public void InitializeBoard (IEnumerable<IPawn> startingPawns, IEnumerable<Field> legalFields) {
+        public void InitializeBoard (List<IPawn> startingPawns, List<Field> legalFields) {
             OnboardPawns = startingPawns;
             PlayableFields = legalFields;
         }
@@ -23,6 +23,10 @@ namespace Checkers {
         public void ResetBoard () {
             OnboardPawns = null;
             PlayableFields = null;
+        }
+        public void TakePawn (IPawn pawn) {
+            pawn.Dispose ();
+            OnboardPawns.Remove (pawn);
         }
 
         public Field this[Fields field] {
